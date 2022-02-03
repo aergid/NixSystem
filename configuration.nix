@@ -29,11 +29,7 @@
       luks.devices."root" = {
         device = "/dev/sda2";
         preLVM = true;
-        keyFile = "/keyfile0.bin";
         allowDiscards = true;
-      };
-      secrets = {
-        "keyfile0.bin" = "/etc/secrets/initrd/keyfile0.bin";
       };
     };
   };
