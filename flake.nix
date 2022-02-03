@@ -7,7 +7,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, ... }: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, ... }: {
     nixosConfigurations = {
       borealis = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -20,6 +20,9 @@
             in
             {
               nixpkgs.overlays = [ overlay-unstable ];
+              # Let 'nixos-version --json' know about the Git revision
+              # of this flake.
+              system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
 
               imports =
                 [
