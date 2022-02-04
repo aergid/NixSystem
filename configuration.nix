@@ -117,6 +117,8 @@
     };
   };
 
+  hardware.rtl-sdr.enable = true;
+
   programs = {
     nm-applet.enable = true;
     ssh.startAgent = false;
