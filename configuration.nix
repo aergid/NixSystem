@@ -15,7 +15,7 @@
       systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        #efiSysMountPoint = "/boot";
       };
       grub = {
         enable = true;
@@ -26,10 +26,11 @@
       };
     };
     initrd = {
-      luks.devices."root" = {
-        device = "/dev/sda2";
-        preLVM = true;
-        allowDiscards = true;
+      luks.devices = {
+        crypt = {
+         device = "/dev/sda2";
+         preLVM = true;
+        };
       };
     };
   };
@@ -66,7 +67,7 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       powerline-fonts
-      nerdfonts
+      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Iosevka" ]; })
     ];
   };
 
