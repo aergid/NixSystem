@@ -28,6 +28,7 @@
                 [
                   ./hardware-configuration.nix
                   ./configuration.nix
+                  ./bluetooth-configuration.nix
                   ./users/ksanteen.nix
                 ];
             }
