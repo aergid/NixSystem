@@ -122,9 +122,14 @@
   programs = {
     nm-applet.enable = true;
     ssh.startAgent = false;
-    neovim.defaultEditor = true;
     zsh.enable = true;
     mosh.enable = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
   };
 
   environment = {
