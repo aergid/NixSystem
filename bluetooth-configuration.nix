@@ -7,7 +7,14 @@
   '';
   boot.kernelModules = [ "hid-apple" ];
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+	enable = true;
+	settings = {
+	  General = {
+		FastConnectable = true;
+	  };
+	};
+  };
 
   systemd.services.bluetooth.serviceConfig.ExecStart = [
     ""
