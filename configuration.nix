@@ -67,6 +67,7 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       powerline-fonts
+      ubuntu_font_family
       (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Iosevka" ]; })
     ];
   };
@@ -74,8 +75,14 @@
   services = {
     xserver = {
     	enable = true;
+        # shows up in Xorg settings, but is overriden by dconf from pantheon in runtime
+        # layout = "us,ru";
+        # xkbOptions = "grp:ctrls_toggle,grp_led:caps,compose:ralt";
+        videoDrivers = [ "intel" ];
+
         displayManager.lightdm.enable = true;
         desktopManager.pantheon.enable = true;
+        windowManager.bspwm.enable = true;
     };
 
     #battery optimization subsystem

@@ -30,6 +30,7 @@
                   ./configuration.nix
                   ./bluetooth-configuration.nix
                   ./users/ksanteen.nix
+                  ./wm/bspwm.nix
                 ];
             }
           )
