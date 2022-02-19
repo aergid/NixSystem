@@ -2,23 +2,21 @@
 
 {
   services = {
-    gnome3.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
     upower.enable = true;
 
     dbus = {
       enable = true;
-      socketActivated = true;
       packages = [ pkgs.gnome3.dconf ];
     };
 
     xserver = {
       enable = true;
-      startDbusSession = true;
       layout = "us,ru";
 
       libinput = {
         enable = true;
-        disableWhileTyping = true;
+        touchpad.disableWhileTyping = true;
       };
 
       displayManager.defaultSession = "none+bspwm";
