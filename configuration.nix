@@ -62,22 +62,12 @@
     keyMap = "us";
   };
 
-  fonts = {
-    fontDir.enable = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      powerline-fonts
-      ubuntu_font_family
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Iosevka" ]; })
-    ];
-  };
-
   services = {
     xserver = {
     	enable = true;
         # shows up in Xorg settings, but is overriden by dconf from pantheon in runtime
-        # layout = "us,ru";
-        # xkbOptions = "grp:ctrls_toggle,grp_led:caps,compose:ralt";
+        layout = "us,ru";
+        xkbOptions = "grp:ctrls_toggle,grp_led:caps,compose:ralt,caps:ctrl_modifier";
         videoDrivers = [ "intel" ];
 
         displayManager.lightdm.enable = true;
