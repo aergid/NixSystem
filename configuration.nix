@@ -63,6 +63,8 @@
   };
 
   services = {
+    autorandr.enable = true;
+
     xserver = {
     	enable = true;
         # shows up in Xorg settings, but is overriden by dconf from pantheon in runtime
