@@ -59,8 +59,6 @@
   };
 
   services = {
-    autorandr.enable = true;
-
     xserver = {
     	enable = true;
         # shows up in Xorg settings, but is overriden by dconf from pantheon in runtime
@@ -119,6 +117,7 @@
   };
 
   programs = {
+    fish.enable = true; # enable vendor fish completions for other packages
     nm-applet.enable = true;
     ssh.startAgent = false;
     zsh.enable = true;
@@ -132,10 +131,12 @@
   };
 
   environment = {
+    binsh = "${pkgs.dash}/bin/dash";
     variables = {
       SUDO_EDITOR = "nvim";
     };
     systemPackages = with pkgs; [
+      dash
       git
       gh
       inotify-tools

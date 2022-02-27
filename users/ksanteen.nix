@@ -12,22 +12,6 @@
       openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK//F4D06X/qtiPFHb7Cbkkou2PBJBA1Fcd6NcrTQTzr borealis" ];
 
       extraGroups = [ "wheel" "docker" "plugdev" "audio" ];
-      packages = with pkgs; [
-        python38Full
-        (
-          python3.withPackages (
-            ps: with ps; [
-              powerline
-              pygments
-              pygments-markdown-lexer
-              xstatic-pygments
-              pylint
-              pynvim
-            ]
-          )
-        )
-        ];
     };
   };
-
 }
