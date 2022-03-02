@@ -59,6 +59,7 @@
   };
 
   services = {
+    autorandr.enable = true;
     xserver = {
     	enable = true;
         # shows up in Xorg settings, but is overriden by dconf from pantheon in runtime
@@ -131,10 +132,13 @@
   };
 
   environment = {
-    binsh = "${pkgs.dash}/bin/dash";
     variables = {
       SUDO_EDITOR = "nvim";
     };
+
+    binsh = "${pkgs.dash}/bin/dash";
+    shellAliases = { l = null; ll = null; ls = null; };
+
     systemPackages = with pkgs; [
       dash
       git
