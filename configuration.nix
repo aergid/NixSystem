@@ -59,6 +59,7 @@
   };
 
   services = {
+    clipcat.enable = true;
     autorandr.enable = true;
     xserver = {
     	enable = true;
