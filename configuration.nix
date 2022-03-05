@@ -141,6 +141,7 @@
     shellAliases = { l = null; ll = null; ls = null; };
 
     systemPackages = with pkgs; [
+      clipcat
       dash
       git
       gh
