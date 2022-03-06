@@ -59,7 +59,6 @@
   };
 
   services = {
-    clipmenu.enable = true;
     autorandr.enable = true;
     xserver = {
     	enable = true;
@@ -135,7 +134,6 @@
   environment = {
     variables = {
       SUDO_EDITOR = "nvim";
-      CM_LAUNCHER = "rofi"; # use rofi in clipmanager
     };
 
     binsh = "${pkgs.dash}/bin/dash";
