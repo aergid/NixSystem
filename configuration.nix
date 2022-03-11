@@ -32,7 +32,23 @@
   };
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dispatcherScripts = [{
+            type = "basic";
+            source = pkgs.writeText "fixVPN" ''
+                #!/bin/sh
+
+                if [ "$1" != "ppp0" ] || [ "$2" != "vpn-up" ]; then
+                    logger "Got $2 event from interface $1"
+                    exit
+                fi
+                logger "Device $DEVICE_IFACE coming up"
+                logger "Running ip route delete default dev ppp0"
+                ip route delete default dev ppp0
+            '';
+      }];
+    };
     hostName = "borealis";
     #useDHCP = false;
     #interfaces.wlp4s0.useDHCP = true;
@@ -60,6 +76,7 @@
 
   services = {
     autorandr.enable = true;
+
     xserver = {
     	enable = true;
         # shows up in Xorg settings, but is overriden by dconf from pantheon in runtime
@@ -77,6 +94,7 @@
           };
         };
     };
+
 
     #battery optimization subsystem
     tlp.enable = true;
