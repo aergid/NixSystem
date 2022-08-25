@@ -75,6 +75,11 @@
   };
 
   services = {
+	udev.extraRules = ''                                                                
+        # Allow user access to some USB devices.                                          
+        SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="5740", TAG+="uaccess", RUN{builtin}+="uaccess"
+      	'';
+
     autorandr.enable = true;
 
     xserver = {
@@ -141,6 +146,7 @@
     ssh.startAgent = false;
     zsh.enable = true;
     mosh.enable = true;
+    steam.enable = true;
     neovim = {
       enable = true;
       defaultEditor = true;

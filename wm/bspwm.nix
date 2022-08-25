@@ -16,7 +16,7 @@
 
       libinput = {
         enable = true;
-        touchpad.disableWhileTyping = true;
+        #touchpad.disableWhileTyping = true;
       };
 
       displayManager.defaultSession = "none+bspwm";
