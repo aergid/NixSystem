@@ -144,7 +144,7 @@
     fish.enable = true; # enable vendor fish completions for other packages
     nm-applet.enable = true;
     ssh.startAgent = false;
-    zsh.enable = true;
+    zsh.enable = false;
     mosh.enable = true;
     steam.enable = true;
     neovim = {
