@@ -164,6 +164,9 @@
     shellAliases = { l = null; ll = null; ls = null; };
 
     systemPackages = with pkgs; [
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
       dash
       git
       gh
