@@ -80,6 +80,12 @@
         SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="5740", TAG+="uaccess", RUN{builtin}+="uaccess"
       	'';
 
+    logind = {
+	lidSwitch = "suspend-then-hibernate";
+	lidSwitchDocked = "ignore";
+        lidSwitchExternalPower = "lock";
+	extraConfig = "HandlePowerKey=suspend";
+    };
     autorandr.enable = true;
 
     xserver = {
