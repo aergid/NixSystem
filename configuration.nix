@@ -8,14 +8,13 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
-      systemd-boot.enable = true;
+#      systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = true;
         #efiSysMountPoint = "/boot";
       };
       grub = {
         enable = true;
-        version = 2;
         efiSupport = true;
         enableCryptodisk = true;
         device = "nodev";
@@ -113,16 +112,6 @@
     #nixos-auto-update.enable = true;
     logrotate = {
       enable = true;
-      extraConfig = ''
-        compress
-        create
-        daily
-        dateext
-        delaycompress
-        missingok
-        notifempty
-        rotate 31
-      '';
     };
     openssh = {
       enable = true;
@@ -170,6 +159,8 @@
     shellAliases = { l = null; ll = null; ls = null; };
 
     systemPackages = with pkgs; [
+      libGL
+      mesa
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl

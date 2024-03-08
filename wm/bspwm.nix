@@ -7,7 +7,7 @@
 
     dbus = {
       enable = true;
-      packages = [ pkgs.gnome3.dconf ];
+      packages = [ pkgs.dconf ];
     };
 
     xserver = {
@@ -17,6 +17,10 @@
       libinput = {
         enable = true;
         touchpad.disableWhileTyping = false;
+	touchpad.naturalScrolling = false;
+	touchpad.middleEmulation = true;
+	touchpad.tapping = true;
+
       };
 
       displayManager.defaultSession = "none+bspwm";
